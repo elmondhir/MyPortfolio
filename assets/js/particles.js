@@ -74,8 +74,8 @@ particlesJS("wrapper", {
     "detect_on": "canvas",
     "events": {
       "onhover": {
-        "enable": true,
-        "mode": "grab"
+        "enable": false,
+        // "mode": "grab"
       },
       "onclick": {
         "enable": false,
