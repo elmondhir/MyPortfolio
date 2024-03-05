@@ -1,9 +1,10 @@
 /* ---- particles.js config ---- */
 
 particlesJS("wrapper", {
+  "fps_limit": 15,
   "particles": {
     "number": {
-      "value": 100,
+      "value": 90,
       "density": {
         "enable": true,
         "value_area": 750
@@ -77,8 +78,8 @@ particlesJS("wrapper", {
         "mode": "grab"
       },
       "onclick": {
-        "enable": true,
-        "mode": "push"
+        "enable": false,
+        // "mode": "push"
       },
       "resize": true
     },
