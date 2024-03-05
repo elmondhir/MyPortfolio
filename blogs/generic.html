@@ -1,9 +1,5 @@
 <!DOCTYPE HTML>
-<!--
-	Massively by HTML5 UP
-	html5up.net | @ajlkn
-	Free for personal and commercial use under the CCA 3.0 license (html5up.net/license)
--->
+
 <html>
 	<head>
 		<title>Generic Page - Massively by HTML5 UP</title>
@@ -11,6 +7,8 @@
 		<meta name="viewport" content="width=device-width, initial-scale=1, user-scalable=no" />
 		<link rel="stylesheet" href="../assets/css/main.css" />
 		<noscript><link rel="stylesheet" href="../assets/css/noscript.css" /></noscript>
+		<script src="https://cdn.emailjs.com/dist/email.min.js"></script>
+	
 	</head>
 	<body class="is-preload">
 
@@ -59,17 +57,19 @@
 
 				<!-- Footer -->
 					<footer id="footer">
+						
 						<section>
-							<!-- <form method="post" action="#"> -->
+							<h2> Contact me</h2>	
+							<!-- <form id="myForm" method="post"> -->
 								<form id="myForm" method="post" onsubmit="sendEmail(); return false;">
 								<div class="fields">
 									<div class="field">
-										<label for="name">Name</label>
-										<input type="text" name="name" id="name" />
+										<label for="from_name">Name</label>
+										<input type="text" name="from_name" id="from_name" />
 									</div>
 									<div class="field">
-										<label for="email">Email</label>
-										<input type="text" name="email" id="email" />
+										<label for="email_id">Email</label>
+										<input type="text" name="email_id" id="email_id" />
 									</div>
 									<div class="field">
 										<label for="message">Message</label>
@@ -114,32 +114,7 @@
 
 			</div>
 
-		<!-- Scripts -->
-		<script> // Replace 'user_yourEmailjsUserId' with your Email.js user ID
-		
-			function sendEmail() {
-				emailjs.init("pqmb9-XuPo1jtylr0");
-				// const form = document.getElementById('myForm');
-				var params ={
-					from_name : document.getElementById('name').value,
-					email_id : document.getElementById('email').value,
-					message : document.getElementById('message').value
-				}
-				// const data = new FormData(form);
-		
-				console.log(params);
-				emailjs.sendForm("service_zo4ceb2", "template_fy3p9ea", params)
-					.then(function (response) {
-						console.log("Email sent successfully:", response);
-						alert("Email sent successfully!");
-					}, function (error) {
-						console.log("Failed to send email:", error);
-						alert("Failed to send email. Please try again later.");
-					});
-			}
-		</script>
-
-			<script src="https://cdn.emailjs.com/dist/email.min.js"></script>
+			<script src="../assets/js/email.js"></script>
 			<script src="../assets/js/jquery.min.js"></script>
 			<script src="../assets/js/jquery.scrollex.min.js"></script>
 			<script src="../assets/js/jquery.scrolly.min.js"></script>
