@@ -15,7 +15,8 @@ small, strike, strong, sub, sup, tt, var, b,
 u, i, center, dl, dt, dd, ol, ul, li, fieldset,
 form, label, legend, table, caption, tbody,
 tfoot, thead, tr, th, td, article, aside,
-canvas, details, embed, figure, figcaption,
+
+details, embed, figure, figcaption,
 footer, header, hgroup, menu, nav, output, ruby,
 section, summary, time, mark, audio, video {
 	margin: 0;
@@ -32,7 +33,10 @@ footer, header, hgroup, menu, nav, section {
 body {
 	line-height: 1;
 }
-
+canvas {
+	display: block;
+	vertical-align: bottom;
+  }
 ol, ul {
 	list-style: none;
 }
@@ -3215,6 +3219,7 @@ input, select, textarea {
 		color: #eeeeee;
 	}
 
+	
 /* Wrapper */
 
 	#wrapper {
@@ -3227,7 +3232,7 @@ input, select, textarea {
 		overflow: hidden;
 	}
 
-		#wrapper > .bg {
+		/* #wrapper > .bg {
 			position: absolute;
 			top: 0;
 			left: 0;
@@ -3240,14 +3245,37 @@ input, select, textarea {
 			background-repeat: repeat,								no-repeat,													no-repeat;
 			background-attachment: scroll,								scroll,														scroll;
 			z-index: -1;
+		} */
+		.bg {
+			position: absolute;
+			top: 0;
+			left: 0;
+			width: 100%;
+			height: 100%;
+			/* background-color: #b61924; New background color */
+			background-image: url("");
+			background-repeat: no-repeat;
+			background-size: cover;
+			background-position: 50% 50%;
+			z-index: -1;
 		}
-
+		
 			#wrapper > .bg.fixed {
 				position: fixed;
 				width: 100vw;
 				height: 100vh;
 			}
 
+			.particles-js-canvas-el {
+				position: absolute;
+				top: 0;
+				left: 0;
+				width: 100%;
+				height: 100%;
+				z-index: -1; /* Ensure canvas is behind the wrapper */
+			}
+		/* Remove the fade-in styles */
+/* 
 		#wrapper.fade-in:before {
 			pointer-events: none;
 			-moz-transition: opacity 1s ease-in-out;
@@ -3267,11 +3295,11 @@ input, select, textarea {
 			position: fixed;
 			top: 0;
 			width: 100%;
-		}
+		} */
 
-		body.is-preload #wrapper.fade-in:before {
+		/* body.is-preload #wrapper.fade-in:before {
 			opacity: 1;
-		}
+		} */
 
 		@media screen and (orientation: portrait) {
 
