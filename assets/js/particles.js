@@ -1,7 +1,7 @@
 /* ---- particles.js config ---- */
 
 particlesJS("wrapper", {
-  "fps_limit": 15,
+  "fps_limit": 25,
   "particles": {
     "number": {
       "value": 90,
