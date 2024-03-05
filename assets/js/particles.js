@@ -90,16 +90,22 @@ particlesJS("wrapper", {
         }
       },
       "bubble": {
-        "distance": 400,
-        "size": 40,
-        "duration": 2,
-        "opacity": 8,
-        "speed": 3
-      },
-      "repulse": {
-        "distance": 200,
-        "duration": 0.4
-      },
+        "enable": false,  // Disable bubble mode if not needed
+     },
+     "repulse": {
+        "enable": false,  // Disable repulse mode if not needed
+     },
+      // "bubble": {
+      //   "distance": 400,
+      //   "size": 40,
+      //   "duration": 2,
+      //   "opacity": 8,
+      //   "speed": 3
+      // },
+      // "repulse": {
+      //   "distance": 200,
+      //   "duration": 0.4
+      // },
       "push": {
         "particles_nb": 4
       },
