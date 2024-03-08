@@ -64,71 +64,11 @@
 									</h1>
 									<p>Customer churn refers to the rate at which customers stop doing business with a company. 
                                         Reducing customer churn is crucial for businesses as it directly impacts revenue and profitability
-									    by building and training a CNN model using Tensorflow library
+									    
                                     </p>
 								</header>
 								<div class="image main"><img src="../images/churn.png" alt="" /></div>
-								<p>License plate detection and recognition stand at the forefront of image processing and computer vision, revolutionizing applications in our daily lives. From unattended parking lots to security control and automatic toll collection, the impact of this technology is undeniable. In this blog post, we embark on a journey to develop a license plate detection model using the Python library Tensorflow, this work was part of my internship at CERIST, an Algerian Information Technology Research laboratory.</p>
-								<h3> Environment Setup:</h3>
-								<p>Our first step involves setting up the environment in Google Colab. We install the necessary dependencies, including OpenCV for image processing, OS, glob, lxml, TensorFlow for deep learning, and pytesseract for OCR capabilities.</p>
-								
-								<!-- Code Box with Syntax Highlighting -->
-								<pre><code class="hljs shell">!pip install opencv-python 
-!pip install tensorflow
-!pip install pytesseract								</code></pre>
-
-								<h3> Download the data:</h3>
-								<p>We obtain our dataset from Kaggle, specifically the <a target="_blank" href="https://www.kaggle.com/datasets/xairete/car-plates-ocr">'Car Plates OCR'</a> dataset, comprising over 28.8k images of vehicles. To streamline our model training, we select a subset of high-quality images (around 8k-10k depending on your compute power) and organize them in a separate folder. Annotations for these images are extracted from a JSON file, providing details like image name, annotations, and license plate information.</p>
-								<h3> Data exploration</h3>
-								<p>We explore the dataset, filtering out images with low resolution or other issues that might hinder model training. Visualization of bounding box (bbox) annotations helps us understand the spatial information associated with license plates.</p>
-								<div class="row gtr-0 gtr-uniform aln-center">
-									<div class="col-10">
-										<span class="image fit"><img src="../images/example cars.png" alt=""></span>
-									</div>
-								</div>
-							
-								<br>
-								<h3> Setting up/Building the model</h3>
-								<p> Note: it is important when doing machine learning projects, to split your data into two sets, a training
-									set which has a size of around (70-90) % of available data. And leave (10-20)% for the testing part
-									(test set).
-								<br><br>
-									Using Tensorflow vast library of functions, and it's high level keras API, we can easily create
-									a CNN model, loaded with some pre-trained weights10, that will be further adjusted in the ”real”
-									training of the model:</p>
-								
-									<div class="row gtr-0 gtr-uniform aln-center">
-										<div class="col-8">
-											<span class="image fit"><img src="../images/model_summary.png" alt=""></span>
-										</div>
-									</div>
-								
-								
-								<h3>Training and Evaluation:</h3>
-								<p>With the model architecture in place, we commence the training process. The duration of training depends on factors like data size, hardware capabilities, and more. After training, we evaluate the model's performance using test data, gauging its effectiveness in license plate detection.</p>
-									
-								<div class="row gtr-0 gtr-uniform aln-center">
-									<div class="col-7">
-										<span class="image fit"><img src="../images/accuracy_plot.png" alt=""></span>
-									</div>
-								</div>
-								<br>
-								<h3>Hyperparameter Tuning with Weights and Biases</h3>
-								<p>In our license plate detection project, hyperparameter tuning plays a crucial role in optimizing our Convolutional Neural Network (CNN). By fine-tuning batch size, epochs, and neurons in dense layers, we enhance model accuracy and efficiency. Leveraging the Weights and Biases library, we track these hyperparameters for a comprehensive understanding of our model's behavior.
-									<ul>
-									<li>Batch Size: Number of samples processed per training iteration.</li>
-									<li>Number of Epochs: Total passes of the dataset during training.</li>
-									<li>Neurons in Dense Layers: Tuning the architecture for optimal performance.</li>
-									</ul>
-								</p>
-								<div class="row gtr-0 gtr-uniform aln-center">
-									<div class="col-9">
-										<span class="image fit"><img src="../images/wandb.png" alt=""></span>
-									</div>
-								</div>
-								<br>
-								<h3> Conclusion</h3>
-								<p>In this project, we proposed a license plate detection method based on a Deep Convolutional Neural Network (VGG19). The utilization of pre-trained weights from the VGG19 network accelerates the training process while ensuring robust performance under various visual conditions</p>
+								<p>The full code for this tutorial is set up in my <a target="_blank" href="https://github.com/elmondhir/customer-segmentation-tuto"> Github Repo</a></p>
 							</section>
 
 					</div>
