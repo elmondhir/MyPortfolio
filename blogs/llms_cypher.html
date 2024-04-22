@@ -59,45 +59,44 @@
 					<div id="main">
 
 						<!-- Post -->
-							<section class="post">
-								<header class="major">
-									<!-- <span class="date">April 25, 2017</span> -->
-									<h1>Vector Databases: What Lies Behind the Hype?<br />
-									</h1>
-									<p>Discover how to fine-tune Large Language Models (LLMs) to proficiently grasp Neo4j's Cypher query language, enabling seamless navigation and comprehension of graph database querying
-                                    </p>
-								</header>
-								<div class="image main"><img src="../images/vector_dbs1.png" alt="" /></div>
-								<p>In the era of large language models (LLMs) and AI-powered applications, the ability to efficiently store, search, and analyze unstructured data has become increasingly important. One of the key enabling technologies for this is the use of embeddings – dense vector representations of text, images, or other data types that capture their semantic meaning and relationships.
+						<section class="post">
+							<header class="major">
+								<!-- <span class="date">April 25, 2017</span> -->
+								<h1>Fine Tune Llms To Learn Neo4j's Cypher<br />
+								</h1>
+								<p>Discover how to fine-tune Large Language Models (LLMs) to proficiently grasp Neo4j's Cypher query language, enabling seamless navigation and comprehension of graph database querying
 								</p>
-								
-								<h3> LLMS and embeddings</h3>
-								
-								<p>Large language models like GPT-3, BERT, and others have revolutionized the way we work with text data. By training on vast amounts of textual data, these models can generate highly contextual and semantically rich embeddings – numerical vector representations that capture the underlying meaning and relationships within the text.</p>
-
-									<p>These embeddings can be thought of as points in a high-dimensional vector space, where similar texts or concepts are clustered together, enabling powerful capabilities like semantic search, text summarization, and recommendation systems.</p>
-								
-								<div class="row gtr-0 gtr-uniform aln-center">
-									<div class="col-9">
-										<span class="image fit"><img src="../images/cypher.jpg" alt=""></span>
-									</div>
+							</header>
+							<div class="image main"><img src="../images/Neo4j-logo_color.png" alt="" /></div>
+							<p><b>NB:</b> The full code for this tutorial is set up in my <b><a target="_blank" href="https://github.com/elmondhir/Neo4j-LLMS"> Github Repo</a></b>, with setup instruction for Docker as well</p>
+							<h3> Loading dependencies:</h3>
+							<p>Graph databases, such as Neo4j, offer a powerful way to model and query interconnected data. Cypher, Neo4j's query language, plays a crucial role in navigating and extracting insights from these graphs. However, mastering Cypher requires time and effort. In this blog post, we'll explore how to leverage Large Language Models (LLMs) to fine-tune their understanding of Cypher, enabling seamless navigation and comprehension of graph database querying.</p>
+							
+							<h3> Introduction to Large Language Models (LLMs)</h3>
+							<p>Large Language Models, such as OpenAI's GPT series, have revolutionized natural language processing tasks. These models, trained on vast amounts of text data, excel in understanding and generating human-like text. Recently, researchers and practitioners have begun exploring the capabilities of LLMs in domain-specific tasks, including programming languages and specialized query languages like Cypher.</p>
+							
+							<h3>Understanding Cypher</h3>
+							<p>Cypher is a declarative query language specifically designed for graph databases. Its syntax resembles ASCII art, making it highly expressive and intuitive for querying graph structures. However, mastering Cypher requires understanding its unique syntax, patterns, and querying techniques.</p>
+							
+							<div class="row gtr-0 gtr-uniform aln-center">
+								<div class="col-9">
+									<span class="image fit"><img src="../images/cypher.jpg" alt=""></span>
 								</div>
-								<h3>Fine-Tuning with Peft and LoRA</h3>
-								<p><b>LoRA (Low-Rank Adaptation)</b> is a parameter-efficient fine-tuning method that introduces trainable rank decompositions to the weight matrices of a pre-trained model. This approach allows for efficient adaptation to specific tasks while minimizing the number of trainable parameters, thereby reducing computational requirements and memory footprint.</p>
+							</div>
+							<h3>Fine-Tuning with Peft and LoRA</h3>
+							<p><b>LoRA (Low-Rank Adaptation)</b> is a parameter-efficient fine-tuning method that introduces trainable rank decompositions to the weight matrices of a pre-trained model. This approach allows for efficient adaptation to specific tasks while minimizing the number of trainable parameters, thereby reducing computational requirements and memory footprint.</p>
 
-								<p><b>PEFT (Parameter-Efficient Fine-Tuning)</b>, on the other hand, is a broader framework that encompasses various parameter-efficient fine-tuning techniques, including LoRA. PEFT aims to fine-tune large pre-trained models with significantly fewer trainable parameters, making the process more efficient and scalable.</p>
-								<div class="row gtr-0 gtr-uniform aln-center">
-									<div class="col-9">
-										<span class="image fit"><img src="../images/lora_diagram.png" alt="LoRa"></span>
-									</div>
+							<p><b>PEFT (Parameter-Efficient Fine-Tuning)</b>, on the other hand, is a broader framework that encompasses various parameter-efficient fine-tuning techniques, including LoRA. PEFT aims to fine-tune large pre-trained models with significantly fewer trainable parameters, making the process more efficient and scalable.</p>
+							<div class="row gtr-0 gtr-uniform aln-center">
+								<div class="col-9">
+									<span class="image fit"><img src="../images/lora_diagram.png" alt="LoRa"></span>
 								</div>
+							</div>
 
-								<h3>Step 1: Data Preparation</h3>
-								<p>For this example, we'll use a dataset consisting of 500 examples of natural language descriptions and their corresponding Cypher queries. This dataset was generated using GPT-4 and can be found in my <b><a target="_blank" href="https://github.com/elmondhir/Neo4j-LLMS"> Github Repository</a></b>. The dataset is in CSV format, with each row containing a natural language description and its corresponding Cypher query.</p>
+							<h3>Step 1: Data Preparation</h3>
+							<p>For this example, we'll use a dataset consisting of 500 examples of natural language descriptions and their corresponding Cypher queries. This dataset was generated using GPT-4 and can be found in my <b><a target="_blank" href="https://github.com/elmondhir/Neo4j-LLMS"> Github Repository</a></b>. The dataset is in CSV format, with each row containing a natural language description and its corresponding Cypher query.</p>
 
-
-							</section>
-
+						</section>
 					</div>
 
 				<!-- Footer -->
