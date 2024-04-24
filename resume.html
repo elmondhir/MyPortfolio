@@ -35,7 +35,93 @@
 
   gtag('config', 'G-S9EZ6CLD0X');
 </script>
-	<body class="is-preload">
+
+<style>
+	/* The switch - the box around the slider */
+	.switch {
+	  position: relative;
+	  display: inline-block;
+	  width: 70px;
+	  height: 38px;
+	}
+  
+	/* Hide default HTML checkbox */
+	.switch input {
+	  opacity: 0;
+	  width: 0;
+	  height: 0;
+	}
+  
+	/* The slider */
+	.slider {
+	  position: absolute;
+	  cursor: pointer;
+	  top: 0;
+	  left: 0;
+	  right: 0;
+	  bottom: 0;
+	  background-color: #ccc;
+	  -webkit-transition: .4s;
+	  transition: .4s;
+	  
+	}
+  
+	.slider:before {
+	  position: absolute;
+	  content: "";
+	  height: 29px;
+	  width: 29px;
+	  left: 4px;
+	  bottom: 4px;
+	  background-color: white;
+	  -webkit-transition: .4s;
+	  transition: .4s;
+	}
+  
+	/* input:checked + .slider {
+	  background-color: #2196F3;
+	} */
+/*   
+	input:focus + .slider {
+	  box-shadow: 0 0 1px #2196F3;
+	} */
+  
+	input:checked + .slider:before {
+	  -webkit-transform: translateX(31px);
+	  -ms-transform: translateX(31px);
+	  transform: translateX(31px);
+	}
+  
+	/* Rounded sliders */
+	.slider.round {
+	  border-radius: 34px;
+	}
+  
+	.slider.round:before {
+	  border-radius: 50%;
+	}
+
+	/* Text for language options */
+	.text-fr,
+	.text-en {
+	position: absolute;
+	top: 50%;
+	transform: translateY(-50%);
+	font-size: 12px;
+	color: #333;
+	padding: 0 5px;
+	}
+
+	.text-fr {
+	left: 5px;
+	}
+
+	.text-en {
+	right: 5px;
+	}
+  </style>
+  
+   <body class="is-preload">
 
 		<!-- Wrapper -->
 			<div id="wrapper">
@@ -67,6 +153,15 @@
 					<div id="main">
 						<!-- Post -->
 							<section class="post">
+								<div>
+									<label class="switch">
+										<input id="language-toggle" type="checkbox">
+										<span class="slider round"></span>
+										<span class="text-fr">FR</span>
+										<span class="text-en">EN</span>
+									  </label>
+								  </div>
+
 								<a href="CV-CHAALAL-Mohamed.pdf" target="_blank" class="button icon solid fa-download" style="position: absolute; top: 0; right: 0; margin-top: 15px; text-align: center; margin-right: 50px; font-size: large;font-family: Source Sans Pro, Helvetica, sans-serif;">
 									PDF</a>
 									<!-- Introduction -->
@@ -255,6 +350,155 @@
 
 			</div>
 
+			<script>
+				const toggleButton = document.getElementById('language-toggle');
+				const aboutSection = document.getElementById('about');
+				const experiencesSection = document.getElementById('experiences');
+				const achievementsSection = document.getElementById('achievements');
+				const skillsSection = document.getElementById('skills');
+
+				const contentBN = {
+				about: `
+						<div class="units-row units-split wrap">
+							<!-- <div class="unit-20">
+								<img src="img/ava.jpg" alt="Avatar">
+							</div> -->
+							<div class="unit-80">
+								<h1>CHAALAL Mohamed<br><span id="typed"></span></h1>
+							</div>
+							<p>
+								Data Science student looking for opportunities to innovate and solve problems through
+								data analysis, artificial intelligence and the development of learning models
+								automatic. Skills in database management and big data applications. Motivated to
+								leverage analytical talents to create impactful data-driven solutions.
+							</p>
+						</div>
+				`,
+				experiences: `
+					<h2>Experience</h2>
+					<p>
+					Translation of the experiences section content in Bengali.
+					</p>
+				`,
+				achievements: `
+				<h2>ACADEMIC TRAINING</h2>
+					<ul class="award-list list-flat">
+						<li>Master Machine Learning for Data Science</li>
+						<li><i><a href="https://u-paris.fr/" target="_blank">Université Paris Cité</a></i></li>
+						<li style="color: #8c8c8c;">Sep 2023 - Present</li>
+					</ul>
+					<ul class="award-list list-flat">
+						<li>Engineer + Master Data Science & Artificial Intelligence</li>
+						<li><i><a href="https://www.enp.edu.dz/" target="_blank">École Nationale Polytechnique d'Alger (ENP)</a></i></li>
+						<li style="color: #8c8c8c;">Sep 2020 - Sep 2023</li>
+					</ul>
+					<ul class="award-list list-flat">
+						<li>Preparatory Classes in Science and Technology</li>
+						<li><i><a href="#" target="_blank">Ecole Nationale Supérieure des Technologies Avancées (Ex. ESSA)</a></i></li>
+						<li style="color: #8c8c8c;">Sep 2018 - Sep 2020 </li>
+					</ul>
+					</div>
+				`,
+				skills: `
+					<h2>Compétences</h2>
+					<p>
+					Translation of the skills section content in Bengali.
+					</p>
+				`
+				};
+
+				const contentEN = {
+				about: `
+						<div class="units-row units-split wrap">
+							<!-- <div class="unit-20">
+								<img src="img/ava.jpg" alt="Avatar">
+							</div> -->
+							<div class="unit-80">
+								<h1>CHAALAL Mohamed<br><span id="typed"></span></h1>
+							</div>
+							<p>
+								Étudiant en Data Science à la recherche d'opportunités d'innover et de résoudre des problèmes par
+								l'analyse de données, l'intelligence artificiel et le développement de modèles d'apprentissage
+								automatique. Compétences en gestion de bases de données et en applications big data. Motivé pour
+								exploiter ses talents analytiques afin de créer des solutions impactantes basées sur les données.
+							</p>
+						</div>
+				`,
+				experiences: `
+					<h2>Experience</h2>
+					<p>
+					Data Scientist - Stagiaire
+					Luxembourg Institute of Science & Technology, Luxembourg
+					Mars 2023 - Août 2023
+					- Réaliser une revue de l'état de l'art sur les outils et les techniques utilisés pour la résolution d'entités.
+					- Évaluer une sélection de méthodes utilisant l'apprentissage automatique dans le graphe de connaissances comprenant plus de 200 000 nœuds et relations.
+					- Concevoir et mettre en œuvre les méthodes améliorées en Python, sous forme d'un ensemble de libraries.
+
+					Data Analyst - Stagiaire
+					BNP Paribas, Algérie
+					Avr 2022 - Juill 2022
+					- Développement d'un modèle de tarification dynamique centré sur les clients pour des stratégies de prix adaptatives.
+					- Segmentation des clients afin d'identifier les familles homogènes pour adapter les prix et les tarifs différenciés, à l'aide de modèles non supervisés (K-means, DBSAN, etc).
+					- Évaluation des résultats à l'aide de plusieurs mesures (coefficient de Silhouette, indice de Dunn, etc).
+
+					R&D - Stagiaire
+					CERIST, Algérie
+					Juin 2021 - Juill 2021
+					- Détection et reconnaissance de plaques d'immatriculation à l'aide de l'intelligence artificielle.
+					- Traitement d'images et application de différentes transformations morphologiques.
+					- Mise en œuvre d'un modèle d'apprentissage en profondeur (CNN).
+					</p>
+				`,
+				achievements: `
+
+						<h2>FORMATION ACADÉMIQUE</h2>
+						<ul class="award-list list-flat">
+							<li>Master Machine Learning
+								pour la Data Science</li>
+								<li> <i><a href="https://u-paris.fr/" target="_blank">Université Paris Cité</a></i></li>
+							<li style="color: #8c8c8c;">Sep 2023 - Aujourd'hui</li>
+						</ul>
+						<ul class="award-list list-flat">
+							<li>Ingénieur + Master Data Science & Artificial Intelligence</li>
+							<li> <i><a href="https://www.enp.edu.dz/" target="_blank">École Nationale Polytechnique d'Alger (ENP)</a></i></li>
+							<li style="color: #8c8c8c;">Sep 2020 - Sep 2023</li>
+						</ul>
+						<ul class="award-list list-flat">
+							<li>Classes préparatoires
+								Sciences et technologies</li>
+							<li> <i><a href="#" target="_blank">Ecole Nationale Supérieure des Technologies Avancées (Ex. ESSA)</a></i></li>
+							<li style="color: #8c8c8c;">Sep 2018 - Sep 2020 </li>
+						</ul>
+
+				`,
+				skills: `
+					<h2>Compétences</h2>
+					<p>
+					Languages: Python / JAVA / R / SQL
+					Machine Learning & AI: Scikit-learn / Pytorch / HF-Transformers / LLMs (Fine-tuning)
+					Database: MySQL / Postgresql / MongoDB
+					Divers: Hadoop - MapReduce, Apache Spark / AWS (Athena, S3, Redshift) / CI/CD (Git, Jenkins) / Orchestration (Docker, Kubernetes)
+					</p>
+				`
+				};
+
+				function createContentElement(html) {
+				const contentElement = document.createElement('div');
+				contentElement.innerHTML = html;
+				return contentElement;
+				}
+
+				toggleButton.addEventListener('change', function() {
+				const langContent = this.checked ? contentBN : contentEN;
+
+				aboutSection.innerHTML = langContent.about;
+				experiencesSection.innerHTML = langContent.experiences;
+				achievementsSection.innerHTML = langContent.achievements;
+				skillsSection.innerHTML = langContent.skills;
+				});
+
+
+			  </script>
 			<script src="../assets/js/email.js"></script>
 			<script src="../assets/js/jquery.min.js"></script>
 			<script src="../assets/js/jquery.scrollex.min.js"></script>
