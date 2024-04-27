@@ -26,7 +26,7 @@ experiences: `
 <ul class="work-list">
 <li>Data Scientist - Stagiaire</li>
 <li><a href="#">The Goodyear Tire & Rubber Companyg</a></li>
-<li style="color: #8c8c8c;">Fev 2024 - Août 2024</li>
+<li style="color: #8c8c8c;">Fev 2024 - Présent</li>
 </ul>
 <ul style="list-style-type: none;">
 <li>
@@ -145,7 +145,7 @@ experiences: `
 <ul class="work-list">
 <li>Data Scientist - Stagiaire</li>
 <li><a href="#">The Goodyear Tire & Rubber Company</a></li>
-<li style="color: #8c8c8c;">Fev 2024 - Août 2024</li>
+<li style="color: #8c8c8c;">Fev 2024 - Présent</li>
 </ul>
 <ul style="list-style-type: none;">
 <li>
