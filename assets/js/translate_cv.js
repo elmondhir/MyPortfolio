@@ -14,7 +14,7 @@ about: `
                 <h1>CHAALAL Mohamed<br><span id="typed"></span></h1>
             </div>
             <p>
-                Data Science student looking for opportunities to innovate and solve problems through
+                Data Scientist looking for opportunities to innovate and solve problems through
                 data analysis, artificial intelligence and the development of learning models
                 automatic. Skills in database management and big data applications. Motivated to
                 leverage analytical talents to create impactful data-driven solutions.
@@ -23,6 +23,22 @@ about: `
 `,
 experiences: `
 <h2>Experience</h2>
+<ul class="work-list">
+<li>Data Scientist - Stagiaire</li>
+<li><a href="#">The Goodyear Tire & Rubber Companyg</a></li>
+<li style="color: #8c8c8c;">Fev 2024 - Août 2024</li>
+</ul>
+<ul style="list-style-type: none;">
+<li>
+    <ul style="padding-left: 14pt;">
+        <li>Developing customer churn prediction model using customer micro-segmentation methods,
+         including Lifetime Value (LTV) calculation, with documentation in Confluence and version control in Jenkins.</li>
+        <li>Developing ETL pipelines to preprocess & analyze customer data from Snowflake warehouses with SQL and Python </li>
+        <li>Conducting monthly progress meetings with IT and business stakeholders to discuss updates, challenges 
+        and gather feedback</li>
+    </ul>
+</li>
+</ul>
 <ul class="work-list">
 <li>Data Scientist - Intern</li>
 <li><a href="#">Luxembourg Institute of Science & Technology, Luxembourg</a></li>
@@ -37,7 +53,6 @@ experiences: `
     </ul>
 </li>
 </ul>
-<br>
 <ul class="work-list">
 <li>Data Analyst - Intern</li>
 <li><a href="#">BNP Paribas, Algeria</a></li>
@@ -52,7 +67,6 @@ experiences: `
     </ul>
 </li>
 </ul>
-<br>
 <ul class="work-list">
 <li>R&D - Intern</li>
 <li><a href="#">CERIST, Algeria</a></li>
@@ -119,7 +133,7 @@ about: `
                 <h1>CHAALAL Mohamed<br><span id="typed"></span></h1>
             </div>
             <p>
-                Étudiant en Data Science à la recherche d'opportunités d'innover et de résoudre des problèmes par
+                Data Scientist à la recherche d'opportunités d'innover et de résoudre des problèmes par
                 l'analyse de données, l'intelligence artificiel et le développement de modèles d'apprentissage
                 automatique. Compétences en gestion de bases de données et en applications big data. Motivé pour
                 exploiter ses talents analytiques afin de créer des solutions impactantes basées sur les données.
@@ -128,6 +142,24 @@ about: `
 `,
 experiences: `
 <h2>EXPÉRIENCE</h2>
+<ul class="work-list">
+<li>Data Scientist - Stagiaire</li>
+<li><a href="#">The Goodyear Tire & Rubber Company</a></li>
+<li style="color: #8c8c8c;">Fev 2024 - Août 2024</li>
+</ul>
+<ul style="list-style-type: none;">
+<li>
+    <ul style="padding-left: 14pt;">
+        <li>Développement d'un modèle de prédiction de l'attrition des clients en utilisant des méthodes
+            de micro-segmentation des clients, y compris le calcul du Lifetime Value (LTV), avec la documentation dans
+            Confluence et le contrôle de version dans Jenkins.</li>
+        <li>Développer des pipelines ETL pour prétraiter et analyser les données clients à partir des
+            entrepôts Snowflake avec SQL et Python. </li>
+        <li>Organiser des réunions mensuelles sur l'état d'avancement du projet avec les parties prenantes informatiques
+            et commerciales afin de discuter des mises à jour, des défis et de recueillir des commentaires.</li>
+    </ul>
+</li>
+</ul>
 <ul class="work-list">
     <li>Data Scientist - Stagiaire</li>
     <li><a href="#">Luxembourg Institute of Science & Technology, Luxembourg</a></li>
@@ -144,7 +176,6 @@ experiences: `
         </ul>
     </li>
 </ul>
-<br>
 <ul class="work-list">
     <li>Data Analyst - Stagiaire</li>
     <li><a href="#">BNP Paribas, Algérie</a></li>
@@ -161,7 +192,6 @@ experiences: `
         </ul>
     </li>
 </ul>
-<br>
 <ul class="work-list">
     <li>R&D - Stagiaire</li>
     <li><a href="#">CERIST, Algérie</a></li>
