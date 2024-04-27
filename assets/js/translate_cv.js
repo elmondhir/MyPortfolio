@@ -250,6 +250,28 @@ skills: `
 `
 };
 
+// JavaScript to change CV PDF link
+const pdfLink = document.getElementById('pdfLink');
+const languageToggle = document.getElementById('language-toggle');
+
+const frenchPdfLink = 'CV-CHAALAL-Mohamed.pdf';
+const englishPdfLink = 'CV-CHAALAL-Mohamed-translate.pdf';
+
+function updatePdfLink() {
+  if (languageToggle.checked) {
+    pdfLink.href = englishPdfLink;
+    pdfLink.textContent = 'PDF';
+  } else {
+    pdfLink.href = frenchPdfLink;
+    pdfLink.textContent = 'PDF';
+  }
+}
+
+languageToggle.addEventListener('change', updatePdfLink);
+updatePdfLink(); // Update the link on page load
+
+// JavaScript to change Content of page (language) 
+
 function createContentElement(html) {
 const contentElement = document.createElement('div');
 contentElement.innerHTML = html;
