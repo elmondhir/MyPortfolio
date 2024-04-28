@@ -142,7 +142,47 @@ results = (
 	.do()
 )
 								</code></pre>
+							<h3>Milvus</h3>
 
+							<p>Milvus is an open-source vector database designed for scalability and performance. Built with a highly modular architecture, Milvus offers a range of customization options, allowing you to tailor it to your specific needs while still benefiting from its robust vector search capabilities.</p>
+							<pre><code class="hljs shell">from milvus import Milvus, MetricType, IndexType
+
+# Connect to Milvus
+client = Milvus()
+
+# Create a collection
+client.create_collection(
+	"my_collection", 
+	fields=[
+		{"name": "vector", "type": MetricType.FLOAT_VECTOR, "dim": 128}
+	],
+	index_file_size=1024
+)
+
+# Insert vectors
+import numpy as np
+vectors = np.random.rand(1000, 128).astype('float32')
+client.insert(
+	collection_name="my_collection",
+	records=[{"vector": vector.tolist()} for vector in vectors]
+)
+
+# Build index
+client.create_index(
+	"my_collection", 
+	IndexType.IVF_FLAT, 
+	{"nlist": 1024}
+)
+
+# Similarity search
+query = np.random.rand(1, 128).astype('float32')
+results = client.search(
+	collection_name="my_collection",
+	query_records=[{"vector": query.tolist()}],
+	top_k=10
+)								
+	</code></pre>
+	
 							</section>
 
 					</div>
