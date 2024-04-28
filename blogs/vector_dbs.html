@@ -115,7 +115,33 @@ distances, indices = index.search(query, 10)							</code></pre>
 							<h3>Weaviate</h3>
 
 							<p>Weaviate is an open-source vector database that combines the power of vector search with the flexibility of a knowledge graph. Built on top of the popular open-source Datastax Cassandra database, Weaviate offers a rich set of features for building intelligent, data-driven applications.</p>
-							
+							<pre><code class="hljs shell">import weaviate
+
+# Connect to Weaviate instance
+client = weaviate.Client("http://localhost:8080")
+
+# Create a schema
+client.schema.create_class("Publication", batching_config={"max_ops": 1000})
+
+# Add data objects
+import numpy as np
+vectors = np.random.rand(1000, 128).astype('float32')
+client.data_object.create(
+	class_name="Publication", 
+	objects=[
+		{"vector": vector.tolist()} for vector in vectors
+	]
+)
+
+# Similarity search
+query = np.random.rand(1, 128).astype('float32')
+results = (
+	client.query.get("Publication", ["vector"])
+	.with_near_vector({"vector": query.tolist()})
+	.with_limit(10)
+	.do()
+)
+								</code></pre>
 
 							</section>
 
