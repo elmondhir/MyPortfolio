@@ -254,8 +254,8 @@ skills: `
 const pdfLink = document.getElementById('pdfLink');
 const languageToggle = document.getElementById('language-toggle');
 
-const frenchPdfLink = 'CV-CHAALAL-Mohamed.pdf';
-const englishPdfLink = 'CV-CHAALAL-Mohamed-translate.pdf';
+const frenchPdfLink = 'FR-CV-CHAALAL-Mohamed.pdf';
+const englishPdfLink = 'EN-CV-CHAALAL-Mohamed.pdf';
 
 function updatePdfLink() {
   if (languageToggle.checked) {
