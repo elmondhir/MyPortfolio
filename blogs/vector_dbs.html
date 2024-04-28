@@ -97,6 +97,26 @@
 								<h3>FAISS</h3>
 
 								<p>FAISS (Facebook AI Similarity Search) is a powerful open-source library for efficient similarity search and clustering of high-dimensional vectors, developed by Meta AI Research. Its lightweight nature, extensive support for various distance metrics and indexing techniques, and seamless integration with popular machine learning frameworks like PyTorch and TensorFlow make it a versatile choice for a wide range of applications.</p>
+								<!-- Code Box with Syntax Highlighting -->
+								<pre><code class="hljs shell">import numpy as np
+import faiss
+
+# Create vectors
+vectors = np.random.rand(1000, 128).astype('float32')
+
+# Create index
+index = faiss.IndexFlatL2(128)  
+index.add(vectors)
+
+# Similarity search
+query = np.random.rand(1, 128).astype('float32')
+distances, indices = index.search(query, 10)							</code></pre>
+							
+							<h3>Weaviate</h3>
+
+							<p>Weaviate is an open-source vector database that combines the power of vector search with the flexibility of a knowledge graph. Built on top of the popular open-source Datastax Cassandra database, Weaviate offers a rich set of features for building intelligent, data-driven applications.</p>
+							
+
 							</section>
 
 					</div>
