@@ -185,42 +185,27 @@ results = client.search(
 							<h3>Pinecone</h3>
 
 							<p>Pinecone is a fully managed vector database service that aims to simplify the process of building and deploying vector search applications. By abstracting away much of the underlying infrastructure and operational complexity, Pinecone allows developers to focus on building their applications without worrying about scaling, sharding, or managing clusters.</p>
-							<pre><code class="hljs shell">from milvus import Milvus, MetricType, IndexType
+							<pre><code class="hljs shell">import pinecone
 
-# Connect to Milvus
-client = Milvus()
+# Initialize Pinecone
+pinecone.init(api_key="YOUR_API_KEY", environment="YOUR_ENVIRONMENT")  
 
-# Create a collection
-client.create_collection(
-"my_collection", 
-fields=[
-{"name": "vector", "type": MetricType.FLOAT_VECTOR, "dim": 128}
-],
-index_file_size=1024
-)
+# Create an index
+index = pinecone.Index("my-index")
 
-# Insert vectors
+# Upsert vectors
 import numpy as np
 vectors = np.random.rand(1000, 128).astype('float32')
-client.insert(
-collection_name="my_collection",
-records=[{"vector": vector.tolist()} for vector in vectors]
-)
-
-# Build index
-client.create_index(
-"my_collection", 
-IndexType.IVF_FLAT, 
-{"nlist": 1024}
-)
+ids = [f"vector_{i}" for i in range(len(vectors))]
+index.upsert(vectors=vectors.tolist(), ids=ids)
 
 # Similarity search
 query = np.random.rand(1, 128).astype('float32')
-results = client.search(
-collection_name="my_collection",
-query_records=[{"vector": query.tolist()}],
-top_k=10
-)								
+results = index.query(
+	query_vectors=[query.tolist()],
+	top_k=10,
+	include_metadata=True
+)							
 </code></pre>
 							</section>
 
