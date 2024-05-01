@@ -97,6 +97,39 @@
 
 							<h3>Step 1: Data Preparation</h3>
 							<p>For this example, we'll use a dataset consisting of 500 examples of natural language descriptions and their corresponding Cypher queries. This dataset was generated using GPT-4 and can be found in my <b><a target="_blank" href="https://github.com/elmondhir/Neo4j-LLMS"> Github Repository</a></b>. The dataset is in CSV format, with each row containing a natural language description and its corresponding Cypher query.</p>
+							<h3>Step 2: Model Selection and Setup</h3>
+							<p>For this example, we'll use the CodeLLaMA model, a powerful language model trained specifically for code and natural language understanding. CodeLLaMA has shown excellent performance in various code-related tasks, making it a suitable choice for our Cypher query fine-tuning task.</p>
+							<pre><code class="hljs shell"># Model names
+model_name = "daryl149/llama-2-7b-chat-hf"
+
+# Activate 4-bit precision base model loading (bool)
+load_in_4bit = True
+
+
+# Activate nested quantization for 4-bit base models (double quantization) (bool)
+bnb_4bit_use_double_quant = True
+
+
+# Quantization type (fp4 or nf4) (string)
+bnb_4bit_quant_type = "nf4"
+
+
+# Compute data type for 4-bit base models
+bnb_4bit_compute_dtype = torch.bfloat16
+
+
+# Load the model 
+
+
+bnb_config = BitsAndBytesConfig(
+		load_in_4bit = load_in_4bit,
+		bnb_4bit_use_double_quant = bnb_4bit_use_double_quant,
+		bnb_4bit_quant_type = bnb_4bit_quant_type,
+		bnb_4bit_compute_dtype = bnb_4bit_compute_dtype,
+	)
+
+
+model, tokenizer = load_model_tokenizer(model_name, bnb_config)</code></pre>
 
 						</section>
 					</div>
