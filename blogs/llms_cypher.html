@@ -187,7 +187,7 @@ bias = "none"
 # Task type (string)
 task_type = "CAUSAL_LM"
 </code>
-						<h3>STEP 4: Finetune the model</h3>
+						<h3>STEP 4: Setup the model for training</h3>
 						<pre><code class="hljs shell">def preprare_model_for_fine_tune(model: AutoModelForCausalLM,
 				lora_r: int,
 				lora_alpha: int,
@@ -215,6 +215,25 @@ task_type = "CAUSAL_LM"
 	model.config.use_cache = False
 
 	return model
+
+model = preprare_model_for_fine_tune(model, lora_r, lora_alpha, lora_dropout, bias, task_type)</code>
+						<h3>STEP 5: Finetune the model</h3>
+						<pre><code class="hljs shell">def fine_tune(model: AutoModelForCausalLM, trainer: Trainer, output_dir: str) -> None:
+	"""
+	Fine-tune the model.
+
+	Args:
+		model (AutoModelForCausalLM): The model to fine-tune.
+		trainer (Trainer): The trainer with the training configuration.
+		output_dir (str): The output directory to save the model.
+	"""
+
+	print("Training...")
+
+	train_result = trainer.train()
+
+	save_metrics(train_result, trainer)
+	save_model(trainer.model, output_dir)
 						</code>
 
 						</section>
