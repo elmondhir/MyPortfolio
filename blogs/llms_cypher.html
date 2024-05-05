@@ -186,7 +186,7 @@ bias = "none"
 
 # Task type (string)
 task_type = "CAUSAL_LM"
-</code>
+</code></pre>
 						<h3>STEP 4: Setup the model for training</h3>
 						<pre><code class="hljs shell">def preprare_model_for_fine_tune(model: AutoModelForCausalLM,
 				lora_r: int,
@@ -216,7 +216,7 @@ task_type = "CAUSAL_LM"
 
 	return model
 
-model = preprare_model_for_fine_tune(model, lora_r, lora_alpha, lora_dropout, bias, task_type)</code>
+model = preprare_model_for_fine_tune(model, lora_r, lora_alpha, lora_dropout, bias, task_type)</code></pre>
 						<h3>STEP 5: Finetune the model</h3>
 						<pre><code class="hljs shell">def fine_tune(model: AutoModelForCausalLM, trainer: Trainer, output_dir: str) -> None:
 	"""
@@ -254,8 +254,10 @@ trainer = Trainer(
 
 ### Start training 
 fine_tune(model, trainer, output_dir)	
-						</code>
-
+						</code></pre>
+						
+						<h3>Step 6: Fine-Tuning Iterations and Refinement</h3>
+						<p>Depending on the performance of the fine-tuned model, you may need to iterate and refine the fine-tuning process. This could involve adjusting the LoRA configuration, trying different pre-trained LLMs, or augmenting the training dataset with additional examples.</p>
 						</section>
 					</div>
 
