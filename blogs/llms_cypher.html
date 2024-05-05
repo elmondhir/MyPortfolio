@@ -234,6 +234,26 @@ model = preprare_model_for_fine_tune(model, lora_r, lora_alpha, lora_dropout, bi
 
 	save_metrics(train_result, trainer)
 	save_model(trainer.model, output_dir)
+
+# Training parameters
+trainer = Trainer(
+	model = model,
+	train_dataset = preprocessed_dataset,
+	args = TrainingArguments(
+		per_device_train_batch_size = per_device_train_batch_size,
+		gradient_accumulation_steps = gradient_accumulation_steps,
+		warmup_steps = warmup_steps,
+		learning_rate = learning_rate,
+		fp16 = fp16,
+		logging_steps = logging_steps,
+		output_dir = output_dir,
+		optim = optim,
+		num_train_epochs=num_train_epochs
+	),
+	data_collator = DataCollatorForLanguageModeling(tokenizer, mlm = False))
+
+### Start training 
+fine_tune(model, trainer, output_dir)	
 						</code>
 
 						</section>
