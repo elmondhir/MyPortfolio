@@ -1,0 +1,213 @@
+<!DOCTYPE HTML>
+
+<html>
+	<head>
+		<link rel="icon" href="../images/favicon.ico" type="image/x-icon">
+		<title>Satellite Imgae Classification </title>
+		<meta charset="utf-8" />
+		<meta name="viewport" content="width=device-width, initial-scale=1, user-scalable=no" />
+		<link rel="stylesheet" href="../assets/css/main.css" />
+		<noscript><link rel="stylesheet" href="../assets/css/noscript.css" /></noscript>
+		<script src="https://cdn.emailjs.com/dist/email.min.js"></script>
+	
+		<!-- Prism.js for syntax highlighting -->
+		<link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/highlight.js/11.9.0/styles/default.min.css">
+		<script src="https://cdnjs.cloudflare.com/ajax/libs/highlight.js/11.9.0/highlight.min.js"></script>
+		
+		<!-- and it's easy to individually load additional languages -->
+		<script src="https://cdnjs.cloudflare.com/ajax/libs/highlight.js/11.9.0/languages/go.min.js"></script>
+		<script>hljs.highlightAll();</script>
+
+	</head>
+	<!-- Google tag (gtag.js) -->
+<script async src="https://www.googletagmanager.com/gtag/js?id=G-S9EZ6CLD0X"></script>
+<script>
+  window.dataLayer = window.dataLayer || [];
+  function gtag(){dataLayer.push(arguments);}
+  gtag('js', new Date());
+
+  gtag('config', 'G-S9EZ6CLD0X');
+</script>
+	<body class="is-preload">
+
+		<!-- Wrapper -->
+			<div id="wrapper">
+
+				<!-- Header -->
+					<header id="header">
+						<a href="../index.html" class="logo">Home</a>
+					</header>
+
+				<!-- Nav -->
+					<nav id="nav">
+						<ul class="links">
+							<!-- <li><a href="index.html">This is Massively</a></li> -->
+							<li class="active"><a href="cnn_project.html">licence Plate Detection</a></li>
+							<li ><a href="churn_project.html">Customer Analysis</a></li>
+							<li><a href="llms_cypher.html">Fine tuning LLMS</a></li>
+							<li><a href="vector_dbs.html">Vector Databases</a></li>
+
+						</ul>
+						<ul class="icons">
+							<li><a href="https://twitter.com/MondhirChaalal" target="_blank" class="icon brands fa-twitter"><span class="label">Twitter</span></a></li>
+							<li><a href="https://www.facebook.com/mondhir.ch" target="_blank" class="icon brands fa-facebook-f"><span class="label">Facebook</span></a></li>
+							<li><a href="https://github.com/elmondhir" target="_blank" class="icon brands fa-github"><span class="label">GitHub</span></a></li>
+							<li><a href="https://www.linkedin.com/in/mohamed-elmondhir-chaalal/" target="_blank" class="icon brands fa-linkedin"><span class="label">LinkedIn</span></a></li>
+						</ul>
+					</nav>
+
+				<!-- Main -->
+					<div id="main">
+
+						<!-- Post -->
+							<section class="post">
+								<header class="major">
+									<!-- <span class="date">April 25, 2017</span> -->
+									<h1>Satellite Imgae Classification<br />
+									</h1>
+									<p>Ever wondered how artificial intelligence deciphers Earth's landscapes from above?<br />
+										Explore how Satellite Image Classification with Deep Learning helps identify different land cover from remote sensing data<br />
+									</p>
+								</header>
+								<div class="image main"><img src="../images/.jpg" alt="" /></div>
+								<p>License plate detection and recognition stand at the forefront of image processing and computer vision, revolutionizing applications in our daily lives. From unattended parking lots to security control and automatic toll collection, the impact of this technology is undeniable. In this blog post, we embark on a journey to develop a license plate detection model using the Python library Tensorflow, this work was part of my internship at CERIST, an Algerian Information Technology Research laboratory.</p>
+								<h3> Environment Setup:</h3>
+								<p>Our first step involves setting up the environment in Google Colab. We install the necessary dependencies, including OpenCV for image processing, OS, glob, lxml, TensorFlow for deep learning, and pytesseract for OCR capabilities.</p>
+								
+								<!-- Code Box with Syntax Highlighting -->
+								<pre><code class="hljs shell">!pip install opencv-python 
+!pip install tensorflow
+!pip install pytesseract								</code></pre>
+
+								<h3> Download the data:</h3>
+								<p>We obtain our dataset from Kaggle, specifically the <a target="_blank" href="https://www.kaggle.com/datasets/xairete/car-plates-ocr">'Car Plates OCR'</a> dataset, comprising over 28.8k images of vehicles. To streamline our model training, we select a subset of high-quality images (around 8k-10k depending on your compute power) and organize them in a separate folder. Annotations for these images are extracted from a JSON file, providing details like image name, annotations, and license plate information.</p>
+								<h3> Data exploration</h3>
+								<p>We explore the dataset, filtering out images with low resolution or other issues that might hinder model training. Visualization of bounding box (bbox) annotations helps us understand the spatial information associated with license plates.</p>
+								<div class="row gtr-0 gtr-uniform aln-center">
+									<div class="col-10">
+										<span class="image fit"><img src="../images/example cars.png" alt=""></span>
+									</div>
+								</div>
+							
+								<br>
+								<h3> Setting up/Building the model</h3>
+								<p> Note: it is important when doing machine learning projects, to split your data into two sets, a training
+									set which has a size of around (70-90) % of available data. And leave (10-20)% for the testing part
+									(test set).
+								<br><br>
+									Using Tensorflow vast library of functions, and it's high level keras API, we can easily create
+									a CNN model, loaded with some pre-trained weights10, that will be further adjusted in the ”real”
+									training of the model:</p>
+								
+									<div class="row gtr-0 gtr-uniform aln-center">
+										<div class="col-8">
+											<span class="image fit"><img src="../images/model_summary.png" alt=""></span>
+										</div>
+									</div>
+								
+								
+								<h3>Training and Evaluation:</h3>
+								<p>With the model architecture in place, we commence the training process. The duration of training depends on factors like data size, hardware capabilities, and more. After training, we evaluate the model's performance using test data, gauging its effectiveness in license plate detection.</p>
+									
+								<div class="row gtr-0 gtr-uniform aln-center">
+									<div class="col-7">
+										<span class="image fit"><img src="../images/accuracy_plot.png" alt=""></span>
+									</div>
+								</div>
+								<br>
+								<h3>Hyperparameter Tuning with Weights and Biases</h3>
+								<p>In our license plate detection project, hyperparameter tuning plays a crucial role in optimizing our Convolutional Neural Network (CNN). By fine-tuning batch size, epochs, and neurons in dense layers, we enhance model accuracy and efficiency. Leveraging the Weights and Biases library, we track these hyperparameters for a comprehensive understanding of our model's behavior.
+									<ul>
+									<li>Batch Size: Number of samples processed per training iteration.</li>
+									<li>Number of Epochs: Total passes of the dataset during training.</li>
+									<li>Neurons in Dense Layers: Tuning the architecture for optimal performance.</li>
+									</ul>
+								</p>
+								<div class="row gtr-0 gtr-uniform aln-center">
+									<div class="col-9">
+										<span class="image fit"><img src="../images/wandb.png" alt=""></span>
+									</div>
+								</div>
+								<br>
+								<h3> Conclusion</h3>
+								<p>In this project, we developed a license plate detection method based on a Deep Convolutional Neural Network (VGG19). The utilization of pre-trained weights from the VGG19 network accelerates the training process while ensuring robust performance under various visual conditions</p>
+							</section>
+
+					</div>
+
+				<!-- Footer -->
+					<footer id="footer">
+						
+						<section>
+							<h2> Contact me</h2>	
+							<form id="myForm" method="post" onsubmit="sendEmail(); return false;">
+							<div class="fields">
+								<div class="field">
+									<label for="from_name">Name</label>
+									<input type="text" name="from_name" id="from_name" />
+								</div>
+								<div class="field">
+									<label for="email_id">Email</label>
+									<input type="text" name="email_id" id="email_id" />
+								</div>
+								<div class="field">
+									<label for="message">Message</label>
+									<textarea name="message" id="message" rows="3"></textarea>
+								</div>
+							</div>
+							<ul class="actions">
+								<li><input type="submit" value="Send Message" /></li>
+							</ul>
+						</form>
+					</section>
+						<section class="split contact">
+							<section class="alt">
+								<h3>Address</h3>
+								<p>32, Rue de Strasbourg<br />
+									Saint-Denis, 93200, France</p>
+							</section>
+							<section>
+								<h3>Phone</h3>
+								<p> +33787382548</p>
+								<!-- <p><a href="#">(000) 000-0000</a></p> -->
+							</section>
+							<section>
+								<h3>Email</h3>
+								<p>mondhirch@gmail.com</p>
+								<!-- <p><a href="#">info@untitled.tld</a></p> -->
+							</section>
+							<section>
+								<h3>Social</h3>
+								<ul class="icons alt">
+									<li><a href="https://twitter.com/MondhirChaalal" target="_blank" class="icon brands alt fa-twitter"><span class="label">Twitter</span></a></li>
+									<li><a href="https://www.facebook.com/mondhir.ch" target="_blank" class="icon brands alt fa-facebook-f"><span class="label">Facebook</span></a></li>
+									<li><a href="https://github.com/elmondhir" target="_blank" class="icon brands alt fa-github"><span class="label">GitHub</span></a></li>
+									<li><a href="https://www.linkedin.com/in/mohamed-elmondhir-chaalal/" target="_blank" class="icon brands alt fa-linkedin"><span class="label">LinkedIn</span></a></li>
+								</ul>
+							</section>
+						</section>
+					</footer>
+
+				<!-- Copyright -->
+					<!-- <div id="copyright">
+						<ul><li>&copy; Untitled</li><li>Design: <a href="https://html5up.net">HTML5 UP</a></li></ul>
+					</div> -->
+
+			</div>
+
+			<script src="../assets/js/email.js"></script>
+			<script src="../assets/js/jquery.min.js"></script>
+			<script src="../assets/js/jquery.scrollex.min.js"></script>
+			<script src="../assets/js/jquery.scrolly.min.js"></script>
+			<script src="../assets/js/browser.min.js"></script>
+			<script src="../assets/js/breakpoints.min.js"></script>
+			<script src="../assets/js/util.js"></script>
+			<script src="../assets/js/main.js"></script>
+
+			<script src='https://cdn.jsdelivr.net/particles.js/2.0.0/particles.min.js'></script>
+			<script src='https://threejs.org/examples/js/libs/stats.min.js'></script>
+
+			<script  src="../assets/js/particles.js"></script>
+
+	</body>
+</html>
