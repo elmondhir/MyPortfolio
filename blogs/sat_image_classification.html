@@ -73,66 +73,10 @@
 								</header>
 								<div class="image main"><img src="../images/sat2.jpg" alt="" /></div>
 								<p>Recent advances in deep learning have enabled significant progress in computer vision tasks like image classification. One particularly interesting application is classifying satellite imagery, which has many real-world use cases from urban planning to environmental monitoring. In this post, I'll walk through my experience training and evaluating several popular convolutional neural network (CNN) architectures on the RSI-CB256 satellite image dataset.</p>
-								<h3> Environment Setup:</h3>
-								<p>Our first step involves setting up the environment in Google Colab. We install the necessary dependencies, including OpenCV for image processing, OS, glob, lxml, TensorFlow for deep learning, and pytesseract for OCR capabilities.</p>
+								<h3> The Dataset</h3>
+								<p>The RSI-CB256 dataset contains 36,288 satellite images covering four different classes:</p>
 								
 								<!-- Code Box with Syntax Highlighting -->
-								<pre><code class="hljs shell">!pip install opencv-python 
-!pip install tensorflow
-!pip install pytesseract								</code></pre>
-
-								<h3> Download the data:</h3>
-								<p>We obtain our dataset from Kaggle, specifically the <a target="_blank" href="https://www.kaggle.com/datasets/xairete/car-plates-ocr">'Car Plates OCR'</a> dataset, comprising over 28.8k images of vehicles. To streamline our model training, we select a subset of high-quality images (around 8k-10k depending on your compute power) and organize them in a separate folder. Annotations for these images are extracted from a JSON file, providing details like image name, annotations, and license plate information.</p>
-								<h3> Data exploration</h3>
-								<p>We explore the dataset, filtering out images with low resolution or other issues that might hinder model training. Visualization of bounding box (bbox) annotations helps us understand the spatial information associated with license plates.</p>
-								<div class="row gtr-0 gtr-uniform aln-center">
-									<div class="col-10">
-										<span class="image fit"><img src="../images/example cars.png" alt=""></span>
-									</div>
-								</div>
-							
-								<br>
-								<h3> Setting up/Building the model</h3>
-								<p> Note: it is important when doing machine learning projects, to split your data into two sets, a training
-									set which has a size of around (70-90) % of available data. And leave (10-20)% for the testing part
-									(test set).
-								<br><br>
-									Using Tensorflow vast library of functions, and it's high level keras API, we can easily create
-									a CNN model, loaded with some pre-trained weights10, that will be further adjusted in the ”real”
-									training of the model:</p>
-								
-									<div class="row gtr-0 gtr-uniform aln-center">
-										<div class="col-8">
-											<span class="image fit"><img src="../images/model_summary.png" alt=""></span>
-										</div>
-									</div>
-								
-								
-								<h3>Training and Evaluation:</h3>
-								<p>With the model architecture in place, we commence the training process. The duration of training depends on factors like data size, hardware capabilities, and more. After training, we evaluate the model's performance using test data, gauging its effectiveness in license plate detection.</p>
-									
-								<div class="row gtr-0 gtr-uniform aln-center">
-									<div class="col-7">
-										<span class="image fit"><img src="../images/accuracy_plot.png" alt=""></span>
-									</div>
-								</div>
-								<br>
-								<h3>Hyperparameter Tuning with Weights and Biases</h3>
-								<p>In our license plate detection project, hyperparameter tuning plays a crucial role in optimizing our Convolutional Neural Network (CNN). By fine-tuning batch size, epochs, and neurons in dense layers, we enhance model accuracy and efficiency. Leveraging the Weights and Biases library, we track these hyperparameters for a comprehensive understanding of our model's behavior.
-									<ul>
-									<li>Batch Size: Number of samples processed per training iteration.</li>
-									<li>Number of Epochs: Total passes of the dataset during training.</li>
-									<li>Neurons in Dense Layers: Tuning the architecture for optimal performance.</li>
-									</ul>
-								</p>
-								<div class="row gtr-0 gtr-uniform aln-center">
-									<div class="col-9">
-										<span class="image fit"><img src="../images/wandb.png" alt=""></span>
-									</div>
-								</div>
-								<br>
-								<h3> Conclusion</h3>
-								<p>In this project, we developed a license plate detection method based on a Deep Convolutional Neural Network (VGG19). The utilization of pre-trained weights from the VGG19 network accelerates the training process while ensuring robust performance under various visual conditions</p>
 							</section>
 
 					</div>
