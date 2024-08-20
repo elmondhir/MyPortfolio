@@ -85,7 +85,7 @@
 								<h3>Data Preparation</h3>
 								
 								<p>The RSI-CB256 dataset comes pre-organized with the images separated into four folders corresponding to the four classes: barren land, vegetation, water, and construction. This made it easy to use Keras' ImageDataGenerator to efficiently load images during training and evaluation.</p>
-								
+								<p>I split the full dataset into 80% train, 10% validation, and 10% test sets using scikit-learn's train_test_split function. Then I created data generators for each split that could load images in batches, apply data augmentation, and preprocess the images on the fly:</p>
 								<!-- Code Box with Syntax Highlighting -->
 							</section>
 
