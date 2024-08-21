@@ -97,15 +97,15 @@ def create_gens(train_df, valid_df, test_df, batch_size):
 	def scalar(img):
 		return img
 	tr_gen = ImageDataGenerator(preprocessing_function= scalar, horizontal_flip= True)
-	
+
 	ts_gen = ImageDataGenerator(preprocessing_function= scalar)
-    train_gen = tr_gen.flow_from_dataframe( train_df, x_col= 'filepaths', y_col= 'labels', target_size= img_size, class_mode= 'categorical',
-                                        color_mode= 'rgb', shuffle= True, batch_size= 40)
-    valid_gen = ts_gen.flow_from_dataframe( valid_df, x_col= 'filepaths', y_col= 'labels', target_size= img_size, class_mode= 'categorical',
-                                        color_mode= 'rgb', shuffle= True, batch_size= 40)
-    test_gen = ts_gen.flow_from_dataframe( test_df, x_col= 'filepaths', y_col= 'labels', target_size= img_size, class_mode= 'categorical',
-                                        color_mode= 'rgb', shuffle= False, batch_size= 40)
-    return train_gen, valid_gen, test_gen
+	train_gen = tr_gen.flow_from_dataframe( train_df, x_col= 'filepaths', y_col= 'labels', target_size= img_size, class_mode= 'categorical',
+										color_mode= 'rgb', shuffle= True, batch_size= 40)
+	valid_gen = ts_gen.flow_from_dataframe( valid_df, x_col= 'filepaths', y_col= 'labels', target_size= img_size, class_mode= 'categorical',
+										color_mode= 'rgb', shuffle= True, batch_size= 40)
+	test_gen = ts_gen.flow_from_dataframe( test_df, x_col= 'filepaths', y_col= 'labels', target_size= img_size, class_mode= 'categorical',
+										color_mode= 'rgb', shuffle= False, batch_size= 40)
+	return train_gen, valid_gen, test_gen
 
 dir = '/kaggle/input/satellite-image-classification/data'
 
@@ -117,8 +117,18 @@ test_df, valid_df = train_test_split(test_valid_df, test_size=0.5, random_state=
 batch_size = 200
 train_gen, valid_gen, test_gen = create_gens(train_df, valid_df, test_df, batch_size)
 							</code></pre>
-							</section>
+							<p>The key pieces in this code are:</p>
 
+							<ul>
+								<li>Defining an ImageDataGenerator for the training set that applies horizontal flips for basic data augmentation.</li>
+								<li>Using flow_from_dataframe to generate batches, specifying the directory where the images are located.</li>
+								<li>Setting parameters like target image size, color mode, shuffle, batch size, etc.
+									Since the dataset was already split into separate class folders, the flow_from_dataframe method automatically loaded the images and associated labels correctly.
+								</li>
+							</ul>
+							
+							</section>
+								
 					</div>
 
 				<!-- Footer -->
