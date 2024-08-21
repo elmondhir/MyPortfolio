@@ -126,7 +126,7 @@ train_gen, valid_gen, test_gen = create_gens(train_df, valid_df, test_df, batch_
 									Since the dataset was already split into separate class folders, the flow_from_dataframe method automatically loaded the images and associated labels correctly.
 								</li>
 							</ul>
-							
+							<p>I resized the images to 224x224 pixels to match the default input size of the models I tested. Basic augmentation like horizontal flips helps prevent overfitting, though exploring more advanced augmentation could likely boost performance.</p>
 							</section>
 								
 					</div>
