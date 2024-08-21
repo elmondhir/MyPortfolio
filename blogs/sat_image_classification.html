@@ -86,7 +86,37 @@
 								
 								<p>The RSI-CB256 dataset comes pre-organized with the images separated into four folders corresponding to the four classes: barren land, vegetation, water, and construction. This made it easy to use Keras' ImageDataGenerator to efficiently load images during training and evaluation.</p>
 								<p>I split the full dataset into 80% train, 10% validation, and 10% test sets using scikit-learn's train_test_split function. Then I created data generators for each split that could load images in batches, apply data augmentation, and preprocess the images on the fly:</p>
+								
 								<!-- Code Box with Syntax Highlighting -->
+								<pre><code class="hljs shell">
+def create_gens(train_df, valid_df, test_df, batch_size):
+	img_size = (224, 224)
+	channels = 3
+	img_shape = (img_size[0], img_size[1], channels)
+	ts_length = len(test_df)
+	def scalar(img):
+		return img
+	tr_gen = ImageDataGenerator(preprocessing_function= scalar, horizontal_flip= True)
+	
+	ts_gen = ImageDataGenerator(preprocessing_function= scalar)
+    train_gen = tr_gen.flow_from_dataframe( train_df, x_col= 'filepaths', y_col= 'labels', target_size= img_size, class_mode= 'categorical',
+                                        color_mode= 'rgb', shuffle= True, batch_size= 40)
+    valid_gen = ts_gen.flow_from_dataframe( valid_df, x_col= 'filepaths', y_col= 'labels', target_size= img_size, class_mode= 'categorical',
+                                        color_mode= 'rgb', shuffle= True, batch_size= 40)
+    test_gen = ts_gen.flow_from_dataframe( test_df, x_col= 'filepaths', y_col= 'labels', target_size= img_size, class_mode= 'categorical',
+                                        color_mode= 'rgb', shuffle= False, batch_size= 40)
+    return train_gen, valid_gen, test_gen
+
+dir = '/kaggle/input/satellite-image-classification/data'
+
+df = create_df(dir)
+train_df, test_valid_df = train_test_split(df, test_size=0.2, random_state=42)
+test_df, valid_df = train_test_split(test_valid_df, test_size=0.5, random_state=42)
+
+# Get Generators
+batch_size = 200
+train_gen, valid_gen, test_gen = create_gens(train_df, valid_df, test_df, batch_size)
+							</code></pre>
 							</section>
 
 					</div>
