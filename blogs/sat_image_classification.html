@@ -135,7 +135,8 @@ train_gen, valid_gen, test_gen = create_gens(train_df, valid_df, test_df, batch_
 								<li> <b>ResNet:</b> The residual network architecture from Microsoft introduced skip connections to allow easier training of very deep networks (up to 152 layers in ResNet-152). I used the ResNet50 variant which is 50 layers deep.</li>
 								<li> <b>VGG:</b> The VGG network from Oxford prioritizes depth over width, with very small 3x3 convolutional filters stacked to achieve a large effective receptive field. I used the VGG16 variant with 16 weight layers.</li>
 							</ul>
-							<p>For each model, I used transfer learning by initializing the weights from an ImageNet pretrained model, then fine-tuning the full network on the RSI-CB256 dataset.</p>
+							<p>For each model, I used transfer learning by initializing the weights from an ImageNet pretrained model, then fine-tuning the full network on the RSI-CB256 dataset. <br>
+								Here's an example of how I defined and compiled the EfficientNet model:</p>
 						</section>
 								
 					</div>
