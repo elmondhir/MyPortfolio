@@ -151,7 +151,6 @@ channels = 3
 img_shape = (img_size[0], img_size[1], channels)
 class_count = len(list(train_gen.class_indices.keys()))
 
-
 # Create pre-trained model
 base_model = tf.keras.applications.EfficientNetB3(include_top=False, weights="imagenet", input_shape=img_shape, pooling='max')
 for layer in base_model.layers:
@@ -166,6 +165,22 @@ model = Sequential([
     Dense(class_count, activation='softmax')
 ])
 
+optimizer = tf.keras.optimizers.Adam()
+model.compile(optimizer=optimizer, loss='categorical_crossentropy', metrics=['accuracy'])
+
+# Define filepath to save the best model
+filepath = 'best_model.h5'
+
+# Create ModelCheckpoint callback to save the best model based on validation accuracy
+checkpoint = ModelCheckpoint(filepath, monitor='val_accuracy', verbose=1, save_best_only=True, mode='max')
+# Train the model with the added callback
+history = model.fit(
+    x=train_gen,
+    epochs=10,
+    verbose=1,
+    validation_data=valid_gen,
+    callbacks=[checkpoint]
+)
 								</code></pre>
 
 						</section>
